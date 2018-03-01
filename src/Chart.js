@@ -13,8 +13,8 @@ const wrap = (array, offset) =>
 
 const pad = (array, pad) => {
   if (pad === 0) return array;
-  const before = array.slice(-pad).map((d, i) => d * (i / pad));
-  const after = array.slice(0, pad).map((d, i) => d * ((pad - i - 1) / pad));
+  const before = array.slice(-pad).map((d, i) => 0);
+  const after = array.slice(0, pad).map((d, i) => 0);
   return before.concat(array).concat(after);
 };
 
