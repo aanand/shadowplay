@@ -4,9 +4,12 @@
   "private": true,
   "dependencies": {
     "csv": "^2.0.0",
+    "d3-scale": "^2.0.0",
+    "d3-shape": "^1.2.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-dropzone": "^4.2.8",
+    "react-move": "^2.7.0",
     "react-scripts": "1.1.1"
   },
   "scripts": {
