@@ -20,7 +20,7 @@ class App extends Component {
     this.onHourPadChange = this.onHourPadChange.bind(this);
 
     this.state = {
-      hourOffset: 0,
+      hourOffset: -5,
       hourPad: 5
     };
 
