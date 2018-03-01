@@ -13,12 +13,15 @@ const localStorageKey = "data";
 class App extends Component {
   constructor() {
     super();
+
     this.onDrop = this.onDrop.bind(this);
     this.onReadFile = this.onReadFile.bind(this);
-    this.onhourOffsetChange = this.onhourOffsetChange.bind(this);
+    this.onHourOffsetChange = this.onHourOffsetChange.bind(this);
+    this.onHourPadChange = this.onHourPadChange.bind(this);
 
     this.state = {
-      hourOffset: 0
+      hourOffset: 0,
+      hourPad: 5
     };
 
     const savedData = window.localStorage.getItem(localStorageKey);
@@ -40,29 +43,44 @@ class App extends Component {
     window.localStorage.setItem(localStorageKey, JSON.stringify(data));
   }
 
-  onhourOffsetChange(value) {
+  onHourOffsetChange(value) {
     this.setState({ hourOffset: value });
   }
 
+  onHourPadChange(value) {
+    this.setState({ hourPad: value });
+  }
+
   render() {
-    const { data, hourOffset } = this.state;
+    const { data, hourOffset, hourPad } = this.state;
     return (
       <div className="App">
         <div className="App-controls">
           <Dropzone onDrop={this.onDrop} />
           {data && (
-            <Slider
-              min={-12}
-              max={12}
-              value={hourOffset}
-              onChange={this.onhourOffsetChange}
-            />
+            <div>
+              <label>Hour offset</label>
+              <Slider
+                min={-12}
+                max={12}
+                value={hourOffset}
+                onChange={this.onHourOffsetChange}
+              />
+
+              <label>Pad</label>
+              <Slider
+                min={0}
+                max={12}
+                value={hourPad}
+                onChange={this.onHourPadChange}
+              />
+            </div>
           )}
         </div>
 
         {data && (
           <div className="App-chart">
-            <Chart data={data} hourOffset={hourOffset} />
+            <Chart data={data} hourOffset={hourOffset} hourPad={hourPad} />
           </div>
         )}
       </div>
