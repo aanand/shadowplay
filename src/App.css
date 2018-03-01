@@ -9,6 +9,40 @@
   grid-area: controls;
 }
 
+.App-dropzone {
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-dropzone-inner {
+  width: 200px;
+  height: 200px;
+  padding: 25px;
+  border: 2px dotted #aaa;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #aaa;
+  font-size: 1.5em;
+}
+
+.App-dropzone-inner-active {
+  background: #ddd;
+  border-style: solid;
+}
+
+.App-sliders {
+  margin: 25px;
+}
+
+.App-sliders label {
+  display: block;
+  margin: 25px 0 5px;
+}
+
 .App-chart {
   grid-area: chart;
   padding: 100px;

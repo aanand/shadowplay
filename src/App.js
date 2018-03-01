@@ -56,9 +56,18 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-controls">
-          <Dropzone onDrop={this.onDrop} />
+          <div className="App-dropzone">
+            <Dropzone
+              className="App-dropzone-inner"
+              activeClassName="App-dropzone-inner-active"
+              onDrop={this.onDrop}
+            >
+              Drop tweets.csv here
+            </Dropzone>
+          </div>
+
           {data && (
-            <div>
+            <div className="App-sliders">
               <label>Hour offset</label>
               <Slider
                 min={-12}
