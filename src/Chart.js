@@ -6,7 +6,6 @@ import { line, area, curveBasis } from "d3-shape";
 const boundsWidth = 1000;
 const boundsHeight = 1000;
 
-const startHour = 5;
 const padHours = 5;
 
 const getMax = (a, b) => Math.max(a, b);
@@ -22,7 +21,7 @@ const pad = (array, pad) => {
 
 class Chart extends Component {
   render() {
-    const { data } = this.props;
+    const { data, hourOffset } = this.props;
 
     const maxVolume = data
       .map(hours => hours.reduce(getMax, 0))
@@ -60,7 +59,7 @@ class Chart extends Component {
           >
             {nodes.map(({ key, data, state }) => {
               let hours = data;
-              hours = wrap(hours, startHour);
+              hours = wrap(hours, -hourOffset);
               hours = pad(hours, padHours);
 
               return (
