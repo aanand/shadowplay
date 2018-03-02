@@ -7,7 +7,7 @@ import Chart from "./Chart";
 
 import "./App.css";
 
-const localStorageKeys = ["data", "config"];
+const LOCAL_STORAGE_KEYS = ["data", "config"];
 
 const DEFAULT_CONFIG = {
   hourOffset: -5,
@@ -33,7 +33,7 @@ class App extends Component {
       config: DEFAULT_CONFIG
     };
 
-    localStorageKeys.forEach(key => {
+    LOCAL_STORAGE_KEYS.forEach(key => {
       const savedData = window.localStorage.getItem(key);
       if (savedData) {
         this.state[key] = JSON.parse(savedData);
@@ -42,7 +42,7 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    localStorageKeys.forEach(key => {
+    LOCAL_STORAGE_KEYS.forEach(key => {
       window.localStorage.setItem(key, JSON.stringify(this.state[key]));
     });
   }
