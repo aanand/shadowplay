@@ -20,7 +20,13 @@ const pad = (array, pad) => {
 
 class Chart extends Component {
   render() {
-    const { data, hourOffset, hourPad } = this.props;
+    const {
+      data,
+      hourOffset,
+      hourPad,
+      backgroundColor,
+      foregroundColor
+    } = this.props;
 
     const maxVolume = data
       .map(hours => hours.reduce(getMax, 0))
@@ -54,7 +60,7 @@ class Chart extends Component {
         {nodes => (
           <svg
             viewBox={`0 0 ${boundsWidth} ${boundsHeight}`}
-            style={{ overflow: "visible" }}
+            style={{ overflow: "visible", backgroundColor: backgroundColor }}
           >
             {nodes.map(({ key, data, state }) => {
               let hours = data;
@@ -63,10 +69,14 @@ class Chart extends Component {
 
               return (
                 <g key={key} transform={`translate(0, ${pathY(key)})`}>
-                  <path fill="white" stroke="none" d={areaRenderer(hours)} />
+                  <path
+                    fill={backgroundColor}
+                    stroke="none"
+                    d={areaRenderer(hours)}
+                  />
                   <path
                     fill="none"
-                    stroke="black"
+                    stroke={foregroundColor}
                     strokeWidth="2"
                     d={lineRenderer(hours)}
                   />
