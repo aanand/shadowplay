@@ -26,3 +26,13 @@
   width: 100%;
   height: 100%;
 }
+
+.App-error {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background: black;
+  color: #c00;
+  font-size: 40px;
+}

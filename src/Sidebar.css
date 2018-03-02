@@ -13,6 +13,7 @@
   justify-content: center;
   color: #888;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .Sidebar-dropzone-active {

@@ -29,6 +29,7 @@ class App extends Component {
 
     this.state = {
       loading: false,
+      error: null,
       data: null,
       config: DEFAULT_CONFIG
     };
@@ -62,7 +63,14 @@ class App extends Component {
   }
 
   onLoaderComplete(data) {
-    this.setState({ loading: false, data });
+    if (data.length === 0) {
+      this.setState({
+        loading: false,
+        error: "Couldn't parse the file you uploaded, sorry."
+      });
+    } else {
+      this.setState({ loading: false, error: null, data });
+    }
   }
 
   onConfigChange(config) {
@@ -74,7 +82,7 @@ class App extends Component {
   }
 
   render() {
-    const { loading, data, config } = this.state;
+    const { loading, error, data, config } = this.state;
     return (
       <div className="App" style={{ backgroundColor: config.backgroundColor }}>
         <div className="App-sidebar">
@@ -89,13 +97,13 @@ class App extends Component {
         </div>
 
         <div className="App-main">
-          {data ? (
+          {data && (
             <div className="App-chart">
               <Chart data={data} config={config} />
             </div>
-          ) : (
-            <Welcome />
           )}
+          {error && <div className="App-error">{error}</div>}
+          {!data && !error && <Welcome />}
         </div>
       </div>
     );
