@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import NodeGroup from "react-move/NodeGroup";
 import { scaleLinear } from "d3-scale";
 import { line, area, curveBasis } from "d3-shape";
 
@@ -60,42 +59,38 @@ class Chart extends Component {
       .y1(d => pointY(d));
 
     return (
-      <NodeGroup data={data} keyAccessor={(d, i) => i} start={() => {}}>
-        {nodes => (
-          <svg
-            viewBox={`0 0 ${boundsWidth} ${boundsHeight}`}
-            style={{ overflow: "visible", backgroundColor: backgroundColor }}
-          >
-            <g
-              transform={`translate(${padding}, ${padding}) scale(${(boundsWidth -
-                padding * 2) /
-                boundsWidth}, ${(boundsHeight - padding * 2) / boundsHeight})`}
-            >
-              {nodes.map(({ key, data, state }) => {
-                let hours = data;
-                hours = wrap(hours, -hourOffset);
-                hours = pad(hours, hourPad);
+      <svg
+        viewBox={`0 0 ${boundsWidth} ${boundsHeight}`}
+        style={{ overflow: "visible", backgroundColor: backgroundColor }}
+      >
+        <g
+          transform={`translate(${padding}, ${padding}) scale(${(boundsWidth -
+            padding * 2) /
+            boundsWidth}, ${(boundsHeight - padding * 2) / boundsHeight})`}
+        >
+          {data.map((entry, index) => {
+            let hours = entry;
+            hours = wrap(hours, -hourOffset);
+            hours = pad(hours, hourPad);
 
-                return (
-                  <g key={key} transform={`translate(0, ${pathY(key)})`}>
-                    <path
-                      fill={backgroundColor}
-                      stroke="none"
-                      d={areaRenderer(hours)}
-                    />
-                    <path
-                      fill="none"
-                      stroke={foregroundColor}
-                      strokeWidth="2"
-                      d={lineRenderer(hours)}
-                    />
-                  </g>
-                );
-              })}
-            </g>
-          </svg>
-        )}
-      </NodeGroup>
+            return (
+              <g key={index} transform={`translate(0, ${pathY(index)})`}>
+                <path
+                  fill={backgroundColor}
+                  stroke="none"
+                  d={areaRenderer(hours)}
+                />
+                <path
+                  fill="none"
+                  stroke={foregroundColor}
+                  strokeWidth="2"
+                  d={lineRenderer(hours)}
+                />
+              </g>
+            );
+          })}
+        </g>
+      </svg>
     );
   }
 }
