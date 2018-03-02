@@ -61,7 +61,6 @@
 .App-chart {
   grid-area: chart;
   overflow: hidden;
-  padding: 50px;
 }
 
 .App-chart svg {

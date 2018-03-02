@@ -5,6 +5,7 @@ import { line, area, curveBasis } from "d3-shape";
 
 const boundsWidth = 1000;
 const boundsHeight = 1000;
+const padding = 100;
 
 const getMax = (a, b) => Math.max(a, b);
 
@@ -62,27 +63,33 @@ class Chart extends Component {
             viewBox={`0 0 ${boundsWidth} ${boundsHeight}`}
             style={{ overflow: "visible", backgroundColor: backgroundColor }}
           >
-            {nodes.map(({ key, data, state }) => {
-              let hours = data;
-              hours = wrap(hours, -hourOffset);
-              hours = pad(hours, hourPad);
+            <g
+              transform={`translate(${padding}, ${padding}) scale(${(boundsWidth -
+                padding * 2) /
+                boundsWidth}, ${(boundsHeight - padding * 2) / boundsHeight})`}
+            >
+              {nodes.map(({ key, data, state }) => {
+                let hours = data;
+                hours = wrap(hours, -hourOffset);
+                hours = pad(hours, hourPad);
 
-              return (
-                <g key={key} transform={`translate(0, ${pathY(key)})`}>
-                  <path
-                    fill={backgroundColor}
-                    stroke="none"
-                    d={areaRenderer(hours)}
-                  />
-                  <path
-                    fill="none"
-                    stroke={foregroundColor}
-                    strokeWidth="2"
-                    d={lineRenderer(hours)}
-                  />
-                </g>
-              );
-            })}
+                return (
+                  <g key={key} transform={`translate(0, ${pathY(key)})`}>
+                    <path
+                      fill={backgroundColor}
+                      stroke="none"
+                      d={areaRenderer(hours)}
+                    />
+                    <path
+                      fill="none"
+                      stroke={foregroundColor}
+                      strokeWidth="2"
+                      d={lineRenderer(hours)}
+                    />
+                  </g>
+                );
+              })}
+            </g>
           </svg>
         )}
       </NodeGroup>
