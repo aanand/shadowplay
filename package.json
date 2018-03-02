@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "csv": "^2.0.0",
     "d3-scale": "^2.0.0",
     "d3-shape": "^1.2.0",
+    "papaparse": "^4.3.7",
     "rc-slider": "^8.6.1",
     "react": "^16.2.0",
     "react-color": "^2.14.0",

@@ -1870,29 +1870,6 @@ cssom@0.3.x, "cssom@>= 0.3.2 < 0.4.0":
   dependencies:
     cssom "0.3.x"
 
-csv-generate@^2.0.0:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/csv-generate/-/csv-generate-2.0.2.tgz#1c26c52be318f1f0b6435f8df3d1249fb1503f4b"
-
-csv-parse@^2.0.0:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/csv-parse/-/csv-parse-2.0.4.tgz#5b469596766ee07f2cbd71aced7ae76b3c73c901"
-
-csv-stringify@^2.0.0:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/csv-stringify/-/csv-stringify-2.0.4.tgz#9ace220df98ffa7ca91314ac77ff8cba0a08c863"
-  dependencies:
-    lodash.get "~4.4.2"
-
-csv@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/csv/-/csv-2.0.0.tgz#0d51d8fa3ece278b5409f795717fcfcd5ace9b3e"
-  dependencies:
-    csv-generate "^2.0.0"
-    csv-parse "^2.0.0"
-    csv-stringify "^2.0.0"
-    stream-transform "^1.0.0"
-
 currently-unhandled@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/currently-unhandled/-/currently-unhandled-0.4.1.tgz#988df33feab191ef799a61369dd76c17adf957ea"
@@ -4375,10 +4352,6 @@ lodash.defaults@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/lodash.defaults/-/lodash.defaults-4.2.0.tgz#d09178716ffea4dde9e5fb7b37f6f0802274580c"
 
-lodash.get@~4.4.2:
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
-
 lodash.isarguments@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/lodash.isarguments/-/lodash.isarguments-3.1.0.tgz#2f573d85c6a24289ff00663b491c1d338ff3458a"
@@ -5023,6 +4996,10 @@ package-json@^4.0.0:
 pako@~1.0.5:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.6.tgz#0101211baa70c4bca4a0f63f2206e97b7dfaf258"
+
+papaparse@^4.3.7:
+  version "4.3.7"
+  resolved "https://registry.yarnpkg.com/papaparse/-/papaparse-4.3.7.tgz#ed1e7183320d1e0839dfe9f7186185cfc5097b8d"
 
 param-case@2.1.x:
   version "2.1.1"
@@ -6573,10 +6550,6 @@ stream-http@^2.7.2:
     readable-stream "^2.3.3"
     to-arraybuffer "^1.0.0"
     xtend "^4.0.0"
-
-stream-transform@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/stream-transform/-/stream-transform-1.0.2.tgz#47de4d15fbc29b7e2a7e54d25e99538876f114c1"
 
 strict-uri-encode@^1.0.0:
   version "1.1.0"
