@@ -10,10 +10,19 @@
   flex: 1 auto;
 }
 
+.ControlPanel-config .rc-slider-track {
+  background-color: #888;
+}
+
+.ControlPanel-config .rc-slider-handle {
+  border-color: #888;
+}
+
 .ControlPanel-config label {
   display: block;
   margin: 25px 0 5px;
   font-size: 14px;
+  color: #555;
 }
 
 .ControlPanel-clear {
