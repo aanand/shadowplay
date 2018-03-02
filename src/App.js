@@ -19,12 +19,14 @@ class App extends Component {
     this.onReadFile = this.onReadFile.bind(this);
     this.onHourOffsetChange = this.onHourOffsetChange.bind(this);
     this.onHourPadChange = this.onHourPadChange.bind(this);
+    this.onAmplitudeChange = this.onAmplitudeChange.bind(this);
     this.onBackgroundColorChange = this.onBackgroundColorChange.bind(this);
     this.onForegroundColorChange = this.onForegroundColorChange.bind(this);
 
     this.state = {
       hourOffset: -5,
       hourPad: 5,
+      amplitude: 0.2,
       backgroundColor: "#000000",
       foregroundColor: "#ffffff"
     };
@@ -56,6 +58,10 @@ class App extends Component {
     this.setState({ hourPad: value });
   }
 
+  onAmplitudeChange(value) {
+    this.setState({ amplitude: value });
+  }
+
   onBackgroundColorChange(value) {
     this.setState({ backgroundColor: value.hex });
   }
@@ -69,6 +75,7 @@ class App extends Component {
       data,
       hourOffset,
       hourPad,
+      amplitude,
       backgroundColor,
       foregroundColor
     } = this.state;
@@ -103,6 +110,15 @@ class App extends Component {
                 onChange={this.onHourPadChange}
               />
 
+              <label>Amplitude</label>
+              <Slider
+                min={0}
+                max={0.5}
+                step={0.01}
+                value={amplitude}
+                onChange={this.onAmplitudeChange}
+              />
+
               <label>Background</label>
               <ColorPicker
                 className="App-color-picker"
@@ -126,6 +142,7 @@ class App extends Component {
               data={data}
               hourOffset={hourOffset}
               hourPad={hourPad}
+              amplitude={amplitude}
               backgroundColor={backgroundColor}
               foregroundColor={foregroundColor}
             />

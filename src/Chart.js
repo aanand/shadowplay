@@ -25,6 +25,7 @@ class Chart extends Component {
       data,
       hourOffset,
       hourPad,
+      amplitude,
       backgroundColor,
       foregroundColor
     } = this.props;
@@ -43,7 +44,7 @@ class Chart extends Component {
 
     const pointY = scaleLinear()
       .domain([0, maxVolume])
-      .range([0, -boundsHeight * 0.2]);
+      .range([0, -boundsHeight * amplitude]);
 
     const lineRenderer = line()
       .curve(curveBasis)
