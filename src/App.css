@@ -33,6 +33,21 @@
   font-size: 1.5em;
 }
 
+.App-clear {
+  padding: 25px;
+  text-align: center;
+}
+
+.App-clear button {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  color: #aaa;
+  cursor: pointer;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
 .App-dropzone-inner-active {
   background: #ddd;
   border-style: solid;
@@ -46,4 +61,36 @@
 .App-chart svg {
   width: 100%;
   height: 100%;
+}
+
+.App-welcome {
+  grid-area: chart;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+}
+
+.App-welcome-inner {
+  color: #ddd;
+  font-size: 20px;
+  margin: 0 200px;
+}
+
+.App-welcome-inner h1 {
+  text-transform: uppercase;
+  font-weight: lighter;
+  color: white;
+  font-size: 80px;
+  margin-bottom: 40px;
+}
+
+.App-welcome-inner b {
+  font-weight: normal;
+  color: white;
+}
+
+.App-welcome-inner p,
+.App-welcome-inner li {
+  margin: 1em 0;
 }

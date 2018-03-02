@@ -5,4 +5,5 @@
 .ControlPanel label {
   display: block;
   margin: 25px 0 5px;
+  font-size: 14px;
 }
