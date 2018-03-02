@@ -45,7 +45,9 @@ class ControlPanel extends Component {
 
   render() {
     const {
+      onDownload,
       onClear,
+
       config: {
         hourOffset,
         hourPad,
@@ -94,6 +96,12 @@ class ControlPanel extends Component {
             color={foregroundColor}
             onChange={this.onForegroundColorChange}
           />
+        </div>
+
+        <div className="ControlPanel-download">
+          <button type="button" onClick={onDownload}>
+            Download
+          </button>
         </div>
 
         <div className="ControlPanel-clear">

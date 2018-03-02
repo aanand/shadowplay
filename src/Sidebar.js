@@ -7,6 +7,7 @@ import "./Sidebar.css";
 export default ({
   onDropFile,
   onConfigChange,
+  onDownload,
   onClear,
   loading,
   data,
@@ -19,6 +20,7 @@ export default ({
       <ControlPanel
         config={config}
         onChange={onConfigChange}
+        onDownload={onDownload}
         onClear={onClear}
       />
     ) : (

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import download from "downloadjs";
 
 import Welcome from "./Welcome";
 import Sidebar from "./Sidebar";
@@ -25,6 +26,7 @@ class App extends Component {
     this.onReadFile = this.onReadFile.bind(this);
     this.onLoaderComplete = this.onLoaderComplete.bind(this);
     this.onConfigChange = this.onConfigChange.bind(this);
+    this.download = this.download.bind(this);
     this.clear = this.clear.bind(this);
 
     this.state = {
@@ -77,6 +79,15 @@ class App extends Component {
     this.setState({ config });
   }
 
+  download() {
+    if (this._chart) {
+      const uri = this._chart.toDataURL();
+      if (uri) {
+        download(uri, "shadowplay.svg", "data:image/svg+xml");
+      }
+    }
+  }
+
   clear() {
     this.setState({ data: null, config: DEFAULT_CONFIG });
   }
@@ -89,6 +100,7 @@ class App extends Component {
           <Sidebar
             onDropFile={this.onDrop}
             onConfigChange={this.onConfigChange}
+            onDownload={this.download}
             onClear={this.clear}
             loading={loading}
             data={data}
@@ -99,7 +111,13 @@ class App extends Component {
         <div className="App-main">
           {data && (
             <div className="App-chart">
-              <Chart data={data} config={config} />
+              <Chart
+                data={data}
+                config={config}
+                ref={chart => {
+                  this._chart = chart;
+                }}
+              />
             </div>
           )}
           {error && <div className="App-error">{error}</div>}

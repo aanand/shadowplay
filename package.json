@@ -5,6 +5,7 @@
   "dependencies": {
     "d3-scale": "^2.0.0",
     "d3-shape": "^1.2.0",
+    "downloadjs": "^1.4.7",
     "papaparse": "^4.3.7",
     "rc-slider": "^8.6.1",
     "react": "^16.2.0",

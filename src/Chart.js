@@ -19,6 +19,18 @@ const pad = (array, pad) => {
 };
 
 class Chart extends Component {
+  toDataURL() {
+    if (this._svg) {
+      const serializer = new XMLSerializer();
+      const source = encodeURIComponent(
+        serializer.serializeToString(this._svg)
+      );
+      const url = `data:image/svg+xml;charset=utf-8,${source}`;
+      return url;
+    }
+    return "";
+  }
+
   render() {
     const {
       data,
@@ -62,6 +74,9 @@ class Chart extends Component {
       <svg
         viewBox={`0 0 ${boundsWidth} ${boundsHeight}`}
         style={{ overflow: "visible", backgroundColor: backgroundColor }}
+        ref={svg => {
+          this._svg = svg;
+        }}
       >
         <g
           transform={`translate(${padding}, ${padding}) scale(${(boundsWidth -
