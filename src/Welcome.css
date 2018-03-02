@@ -15,9 +15,9 @@
 .Welcome-inner h1 {
   text-transform: uppercase;
   font-weight: lighter;
-  color: white;
   font-size: 80px;
-  margin-bottom: 40px;
+  letter-spacing: 0.05em;
+  color: white;
 }
 
 .Welcome-inner b {
@@ -25,7 +25,10 @@
   color: white;
 }
 
-.Welcome-inner p,
+.Welcome-inner p {
+  margin-bottom: 40px;
+}
+
 .Welcome-inner li {
-  margin: 1em 0;
+  margin: 20px 0;
 }
