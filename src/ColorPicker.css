@@ -1,0 +1,11 @@
+.ColorPicker {
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.ColorPicker div {
+  height: 20px;
+  border-radius: 2px;
+}

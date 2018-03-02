@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { SwatchesPicker } from "react-color";
 
+import "./ColorPicker.css";
+
 class ColorPicker extends Component {
   constructor() {
     super();
@@ -35,7 +37,7 @@ class ColorPicker extends Component {
       );
     } else {
       return (
-        <div className={this.props.className} onClick={this.onOpen}>
+        <div className="ColorPicker" onClick={this.onOpen}>
           <div style={{ backgroundColor: this.props.color }} />
         </div>
       );

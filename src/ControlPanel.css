@@ -1,0 +1,8 @@
+.ControlPanel {
+  margin: 25px;
+}
+
+.ControlPanel label {
+  display: block;
+  margin: 25px 0 5px;
+}

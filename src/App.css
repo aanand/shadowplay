@@ -37,27 +37,6 @@
   border-style: solid;
 }
 
-.App-sliders {
-  margin: 25px;
-}
-
-.App-sliders label {
-  display: block;
-  margin: 25px 0 5px;
-}
-
-.App-color-picker {
-  cursor: pointer;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 4px;
-}
-
-.App-color-picker div {
-  height: 20px;
-  border-radius: 2px;
-}
-
 .App-chart {
   grid-area: chart;
   overflow: hidden;

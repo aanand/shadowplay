@@ -23,11 +23,13 @@ class Chart extends Component {
   render() {
     const {
       data,
-      hourOffset,
-      hourPad,
-      amplitude,
-      backgroundColor,
-      foregroundColor
+      config: {
+        hourOffset,
+        hourPad,
+        amplitude,
+        backgroundColor,
+        foregroundColor
+      }
     } = this.props;
 
     const maxVolume = data
