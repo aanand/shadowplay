@@ -2,106 +2,27 @@
   display: grid;
   grid-template-columns: 250px auto;
   grid-template-rows: auto;
-  grid-template-areas: "controls chart";
-  height: 100vh;
+  grid-template-areas: "sidebar main";
+  min-height: 100vh;
 }
 
-.App-controls {
-  grid-area: controls;
+.App-sidebar {
+  grid-area: sidebar;
   background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
 
-.App-dropzone {
-  height: 250px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.App-dropzone-inner {
-  width: 200px;
-  height: 200px;
-  padding: 25px;
-  border: 2px dotted #aaa;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #aaa;
-  font-size: 1.5em;
-}
-
-.App-clear {
-  padding: 25px;
-  text-align: center;
-}
-
-.App-clear button {
-  background: none;
-  border: none;
-  text-decoration: underline;
-  color: #aaa;
-  cursor: pointer;
-  font-size: inherit;
-  font-weight: inherit;
-}
-
-.App-dropzone-inner-active {
-  background: #ddd;
-  border-style: solid;
+.App-main {
+  grid-area: main;
 }
 
 .App-chart {
-  grid-area: chart;
+  height: 100vh;
   overflow: hidden;
 }
 
 .App-chart svg {
   width: 100%;
   height: 100%;
-}
-
-.App-welcome {
-  grid-area: chart;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: black;
-}
-
-.App-welcome-inner {
-  color: #ddd;
-  font-size: 20px;
-  margin: 0 200px;
-}
-
-.App-welcome-inner h1 {
-  text-transform: uppercase;
-  font-weight: lighter;
-  color: white;
-  font-size: 80px;
-  margin-bottom: 40px;
-}
-
-.App-welcome-inner b {
-  font-weight: normal;
-  color: white;
-}
-
-.App-welcome-inner p,
-.App-welcome-inner li {
-  margin: 1em 0;
-}
-
-.App-loading {
-  grid-area: chart;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: black;
-  color: white;
-  font-size: 80px;
-  text-transform: uppercase;
 }

@@ -1,0 +1,31 @@
+.Welcome {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background: black;
+}
+
+.Welcome-inner {
+  color: #ddd;
+  font-size: 20px;
+  margin: 0 200px;
+}
+
+.Welcome-inner h1 {
+  text-transform: uppercase;
+  font-weight: lighter;
+  color: white;
+  font-size: 80px;
+  margin-bottom: 40px;
+}
+
+.Welcome-inner b {
+  font-weight: normal;
+  color: white;
+}
+
+.Welcome-inner p,
+.Welcome-inner li {
+  margin: 1em 0;
+}

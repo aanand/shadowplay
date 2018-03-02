@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import Dropzone from "react-dropzone";
 
+import Welcome from "./Welcome";
+import Sidebar from "./Sidebar";
 import Loader from "./Loader";
-import ControlPanel from "./ControlPanel";
 import Chart from "./Chart";
+
 import "./App.css";
 
 const localStorageKeys = ["data", "config"];
@@ -74,71 +75,29 @@ class App extends Component {
     const { loading, data, config } = this.state;
     return (
       <div className="App" style={{ backgroundColor: config.backgroundColor }}>
-        <div className="App-controls">
-          {!loading && (
-            <div>
-              {data ? (
-                <div className="App-clear">
-                  <button type="button" onClick={this.clear}>
-                    Start again
-                  </button>
-                </div>
-              ) : (
-                <div className="App-dropzone">
-                  <Dropzone
-                    className="App-dropzone-inner"
-                    activeClassName="App-dropzone-inner-active"
-                    onDrop={this.onDrop}
-                  >
-                    Drop tweets.csv here
-                  </Dropzone>
-                </div>
-              )}
-
-              {data && (
-                <ControlPanel config={config} onChange={this.onConfigChange} />
-              )}
-            </div>
-          )}
+        <div className="App-sidebar">
+          <Sidebar
+            onDropFile={this.onDrop}
+            onConfigChange={this.onConfigChange}
+            onClear={this.clear}
+            loading={loading}
+            data={data}
+            config={config}
+          />
         </div>
 
-        {loading ? (
-          <div className="App-loading">Loading</div>
-        ) : data ? (
-          <div className="App-chart">
-            <Chart data={data} config={config} />
-          </div>
-        ) : (
-          <Welcome />
-        )}
+        <div className="App-main">
+          {data ? (
+            <div className="App-chart">
+              <Chart data={data} config={config} />
+            </div>
+          ) : (
+            <Welcome />
+          )}
+        </div>
       </div>
     );
   }
 }
-
-const Welcome = () => (
-  <div className="App-welcome">
-    <div className="App-welcome-inner">
-      <h1>Shadowplay</h1>
-      <p>Make a nice graph of your Twitter activity.</p>
-      <ol>
-        <li>
-          <b>Request your Twitter archive.</b> Go to “Settings and privacy”,
-          scroll down and click “Request your archive”. Twitter will email you a
-          link to a zip file.
-        </li>
-        <li>
-          <b>Download the archive.</b>
-        </li>
-        <li>
-          <b>Open it and find tweets.csv.</b>
-        </li>
-        <li>
-          <b>Drop it over there on the left.</b>
-        </li>
-      </ol>
-    </div>
-  </div>
-);
 
 export default App;

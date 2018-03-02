@@ -1,9 +1,31 @@
 .ControlPanel {
-  margin: 25px;
+  flex: 1 auto;
+  padding: 25px;
+
+  display: flex;
+  flex-direction: column;
 }
 
-.ControlPanel label {
+.ControlPanel-config {
+  flex: 1 auto;
+}
+
+.ControlPanel-config label {
   display: block;
   margin: 25px 0 5px;
   font-size: 14px;
+}
+
+.ControlPanel-clear {
+  text-align: center;
+}
+
+.ControlPanel-clear button {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  color: #888;
+  cursor: pointer;
+  font-size: inherit;
+  font-weight: inherit;
 }

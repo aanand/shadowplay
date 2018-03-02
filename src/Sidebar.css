@@ -1,0 +1,31 @@
+.Sidebar {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.Sidebar-dropzone {
+  flex: 1 auto;
+  padding: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 20px;
+}
+
+.Sidebar-dropzone-active {
+  background: #ddd;
+  color: #222;
+}
+
+.Sidebar-loading {
+  flex: 1 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 20px;
+}

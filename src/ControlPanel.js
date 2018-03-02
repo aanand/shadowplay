@@ -45,51 +45,62 @@ class ControlPanel extends Component {
 
   render() {
     const {
-      hourOffset,
-      hourPad,
-      amplitude,
-      backgroundColor,
-      foregroundColor
-    } = this.props.config;
+      onClear,
+      config: {
+        hourOffset,
+        hourPad,
+        amplitude,
+        backgroundColor,
+        foregroundColor
+      }
+    } = this.props;
 
     return (
       <div className="ControlPanel">
-        <label>Hour offset</label>
-        <Slider
-          min={-12}
-          max={12}
-          value={hourOffset}
-          onChange={this.onHourOffsetChange}
-        />
+        <div className="ControlPanel-config">
+          <label>Hour offset</label>
+          <Slider
+            min={-12}
+            max={12}
+            value={hourOffset}
+            onChange={this.onHourOffsetChange}
+          />
 
-        <label>Pad</label>
-        <Slider
-          min={0}
-          max={12}
-          value={hourPad}
-          onChange={this.onHourPadChange}
-        />
+          <label>Pad</label>
+          <Slider
+            min={0}
+            max={12}
+            value={hourPad}
+            onChange={this.onHourPadChange}
+          />
 
-        <label>Amplitude</label>
-        <Slider
-          min={0}
-          max={0.5}
-          step={0.01}
-          value={amplitude}
-          onChange={this.onAmplitudeChange}
-        />
+          <label>Amplitude</label>
+          <Slider
+            min={0}
+            max={0.5}
+            step={0.01}
+            value={amplitude}
+            onChange={this.onAmplitudeChange}
+          />
 
-        <label>Background</label>
-        <ColorPicker
-          color={backgroundColor}
-          onChange={this.onBackgroundColorChange}
-        />
+          <label>Background</label>
+          <ColorPicker
+            color={backgroundColor}
+            onChange={this.onBackgroundColorChange}
+          />
 
-        <label>Lines</label>
-        <ColorPicker
-          color={foregroundColor}
-          onChange={this.onForegroundColorChange}
-        />
+          <label>Lines</label>
+          <ColorPicker
+            color={foregroundColor}
+            onChange={this.onForegroundColorChange}
+          />
+        </div>
+
+        <div className="ControlPanel-clear">
+          <button type="button" onClick={onClear}>
+            Start again
+          </button>
+        </div>
       </div>
     );
   }

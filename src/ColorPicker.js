@@ -25,7 +25,7 @@ class ColorPicker extends Component {
         {this.state.open && (
           <div
             className="ColorPicker-picker"
-            style={{ position: "absolute", zIndex: 2, top: "-244px" }}
+            style={{ position: "absolute", zIndex: 2, top: "30px" }}
           >
             <div
               style={{
