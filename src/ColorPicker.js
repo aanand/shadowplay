@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { SwatchesPicker } from "react-color";
 
-import "./ColorPicker.css";
-
 class ColorPicker extends Component {
   constructor() {
     super();
@@ -22,26 +20,52 @@ class ColorPicker extends Component {
   }
 
   render() {
-    if (this.state.open) {
-      return (
-        <div style={{ position: "absolute", zIndex: 2 }}>
+    return (
+      <div style={{ position: "relative" }}>
+        {this.state.open && (
           <div
-            style={{ position: "fixed", top: 0, bottom: 0, left: 0, right: 0 }}
-            onClick={this.onClose}
-          />
-          <SwatchesPicker
-            color={this.props.color}
-            onChange={this.props.onChange}
+            className="ColorPicker-picker"
+            style={{ position: "absolute", zIndex: 2, top: "-244px" }}
+          >
+            <div
+              style={{
+                position: "fixed",
+                top: 0,
+                bottom: 0,
+                left: 0,
+                right: 0
+              }}
+              onClick={this.onClose}
+            />
+            <div style={{ position: "relative" }}>
+              <SwatchesPicker
+                color={this.props.color}
+                onChange={this.props.onChange}
+                width={320}
+                height={240}
+              />
+            </div>
+          </div>
+        )}
+        <div
+          onClick={this.onOpen}
+          style={{
+            cursor: "pointer",
+            border: "1px solid #ccc",
+            borderRadius: "4px",
+            padding: "4px"
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: this.props.color,
+              height: "20px",
+              borderRadius: "2px"
+            }}
           />
         </div>
-      );
-    } else {
-      return (
-        <div className="ColorPicker" onClick={this.onOpen}>
-          <div style={{ backgroundColor: this.props.color }} />
-        </div>
-      );
-    }
+      </div>
+    );
   }
 }
 
