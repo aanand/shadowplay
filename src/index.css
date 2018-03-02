@@ -8,3 +8,8 @@ body {
   font-family: Helvetica, sans-serif;
   font-weight: lighter;
 }
+
+#unsupported {
+  margin: 25px;
+  font-size: 40px;
+}

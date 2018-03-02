@@ -20,12 +20,31 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>SHADOWPLAY</title>
+    <style>
+    #unsupported {
+      display: none;
+    }
+
+    @media screen and (max-width: 959px) {
+      #root {
+        display: none;
+      }
+
+      #unsupported {
+        display: block;
+      }
+    }
+    </style>
   </head>
   <body>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
+    <div id="unsupported">
+      Sorry, SHADOWPLAY needs more screen space. If this is a phone, try opening
+      it on a computer instead.
+    </div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
