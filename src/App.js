@@ -9,6 +9,14 @@ import "./App.css";
 
 const localStorageKeys = ["data", "config"];
 
+const DEFAULT_CONFIG = {
+  hourOffset: -5,
+  hourPad: 5,
+  amplitude: 0.2,
+  backgroundColor: "#000000",
+  foregroundColor: "#ffffff"
+};
+
 class App extends Component {
   constructor() {
     super();
@@ -22,13 +30,7 @@ class App extends Component {
     this.state = {
       loading: false,
       data: null,
-      config: {
-        hourOffset: -5,
-        hourPad: 5,
-        amplitude: 0.2,
-        backgroundColor: "#000000",
-        foregroundColor: "#ffffff"
-      }
+      config: DEFAULT_CONFIG
     };
 
     localStorageKeys.forEach(key => {
@@ -68,7 +70,7 @@ class App extends Component {
   }
 
   clear() {
-    this.setState({ data: null });
+    this.setState({ data: null, config: DEFAULT_CONFIG });
   }
 
   render() {
