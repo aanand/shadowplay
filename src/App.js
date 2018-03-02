@@ -6,7 +6,7 @@ import ControlPanel from "./ControlPanel";
 import Chart from "./Chart";
 import "./App.css";
 
-const localStorageKey = "data";
+const localStorageKeys = ["data", "config"];
 
 class App extends Component {
   constructor() {
@@ -17,6 +17,7 @@ class App extends Component {
     this.onConfigChange = this.onConfigChange.bind(this);
 
     this.state = {
+      data: null,
       config: {
         hourOffset: -5,
         hourPad: 5,
@@ -26,10 +27,18 @@ class App extends Component {
       }
     };
 
-    const savedData = window.localStorage.getItem(localStorageKey);
-    if (savedData) {
-      this.state.data = JSON.parse(savedData);
-    }
+    localStorageKeys.forEach(key => {
+      const savedData = window.localStorage.getItem(key);
+      if (savedData) {
+        this.state[key] = JSON.parse(savedData);
+      }
+    });
+  }
+
+  componentDidUpdate() {
+    localStorageKeys.forEach(key => {
+      window.localStorage.setItem(key, JSON.stringify(this.state[key]));
+    });
   }
 
   onDrop(acceptedFiles) {
@@ -42,7 +51,6 @@ class App extends Component {
     const rawData = event.target.result;
     const data = readData(rawData);
     this.setState({ data });
-    window.localStorage.setItem(localStorageKey, JSON.stringify(data));
   }
 
   onConfigChange(config) {
