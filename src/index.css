@@ -7,9 +7,33 @@
 body {
   font-family: Helvetica, sans-serif;
   font-weight: lighter;
+  background: black;
+  color: white;
+  color: #ddd;
+  font-size: 20px;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: lighter;
+  letter-spacing: 0.05em;
+  color: white;
 }
 
 #unsupported {
   margin: 25px;
+  font-size: 30px;
+}
+
+#unsupported h1 {
   font-size: 40px;
+  text-align: center;
+}
+
+#unsupported img {
+  width: 100%;
+}
+
+#unsupported p {
+  margin: 1em 0;
 }

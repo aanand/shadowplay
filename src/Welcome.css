@@ -7,17 +7,11 @@
 }
 
 .Welcome-inner {
-  color: #ddd;
-  font-size: 20px;
   margin: 0 200px;
 }
 
 .Welcome-inner h1 {
-  text-transform: uppercase;
-  font-weight: lighter;
   font-size: 80px;
-  letter-spacing: 0.05em;
-  color: white;
 }
 
 .Welcome-inner b {
