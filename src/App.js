@@ -12,7 +12,7 @@ const LOCAL_STORAGE_KEYS = ["data", "config"];
 
 const DEFAULT_CONFIG = {
   hourOffset: -5,
-  hourPad: 5,
+  hourPad: 12,
   amplitude: 0.2,
   backgroundColor: "#000000",
   foregroundColor: "#ffffff"

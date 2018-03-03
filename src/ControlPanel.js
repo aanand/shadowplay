@@ -71,7 +71,7 @@ class ControlPanel extends Component {
           <label>Pad</label>
           <Slider
             min={0}
-            max={12}
+            max={16}
             value={hourPad}
             onChange={this.onHourPadChange}
           />
