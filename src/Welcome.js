@@ -9,9 +9,10 @@ export default () => (
       <p>Make a nice graph of your Twitter activity.</p>
       <ol>
         <li>
-          <b>Request your Twitter archive.</b> Go to “Settings and privacy”,
-          scroll down and click “Request your archive”. Twitter will email you a
-          link to a zip file.
+          <b>Request your Twitter archive.</b> Go to
+          <a href="https://twitter.com/settings/account" target="_blank">“Settings
+          and privacy”</a>, scroll down and click “Request your archive”. Twitter
+          will email you a link to a zip file.
         </li>
         <li>
           <b>Download the archive.</b>
