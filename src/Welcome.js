@@ -10,7 +10,11 @@ export default () => (
       <ol>
         <li>
           <b>Request your Twitter archive.</b> Go to{" "}
-          <a href="https://twitter.com/settings/account" target="_blank">
+          <a
+            href="https://twitter.com/settings/account"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             “Settings and privacy”
           </a>, scroll down and click “Request your archive”. Twitter will email
           you a link to a zip file.
