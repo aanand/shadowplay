@@ -6,6 +6,8 @@ import Sidebar from "./Sidebar";
 import Loader from "./Loader";
 import Chart from "./Chart";
 
+import chooseHourOffset from "./chooseHourOffset";
+
 import "./App.css";
 
 const LOCAL_STORAGE_KEYS = ["data", "config"];
@@ -71,7 +73,17 @@ class App extends Component {
         error: "Couldn't parse the file you uploaded, sorry."
       });
     } else {
-      this.setState({ loading: false, error: null, data });
+      this.setState(prevState => {
+        const newConfig = Object.assign({}, prevState.config);
+        newConfig.hourOffset = chooseHourOffset(data);
+
+        return {
+          loading: false,
+          error: null,
+          data: data,
+          config: newConfig
+        };
+      });
     }
   }
 
