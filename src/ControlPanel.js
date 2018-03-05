@@ -4,6 +4,7 @@ import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 
 import ColorPicker from "./ColorPicker";
+import Credits from "./Credits";
 import "./ControlPanel.css";
 
 class ControlPanel extends Component {
@@ -109,6 +110,8 @@ class ControlPanel extends Component {
             Start again
           </button>
         </div>
+
+        <Credits />
       </div>
     );
   }

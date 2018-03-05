@@ -1,5 +1,6 @@
 import React from "react";
 
+import Credits from "./Credits";
 import "./Welcome.css";
 
 export default () => (
@@ -30,6 +31,7 @@ export default () => (
           computer. If you don’t believe me, disconnect from the internet first.
         </li>
       </ol>
+      <Credits />
     </div>
   </div>
 );

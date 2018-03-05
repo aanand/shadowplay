@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   background: black;
+  font-size: 20px;
 }
 
 .Welcome-inner {
@@ -23,6 +24,15 @@
   margin-bottom: 40px;
 }
 
+.Welcome-inner ol {
+  margin-bottom: 40px;
+}
+
 .Welcome-inner li {
   margin: 20px 0;
+}
+
+.Welcome .Credits {
+  font-size: 16px;
+  text-align: right;
 }
