@@ -22,7 +22,8 @@ export default () => (
           <b>Open it and find tweets.csv.</b>
         </li>
         <li>
-          <b>Drop it over there on the left.</b>
+          <b>Drop it over there on the left.</b> Your data won’t leave your
+          computer. If you don’t believe me, disconnect from the internet first.
         </li>
       </ol>
     </div>
