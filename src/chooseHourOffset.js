@@ -20,7 +20,7 @@ export default months => {
 
   const bestOffset = variances.indexOf(Math.min(...variances));
 
-  return bestOffset % 24 - 12;
+  return (bestOffset + 12) % 24 - 12;
 };
 
 const range = length => Array.from(Array(length).keys());
