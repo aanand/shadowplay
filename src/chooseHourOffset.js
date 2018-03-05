@@ -11,16 +11,19 @@ export default months => {
   const totals0 = hours.map(h => sum(months.map(m => m[h])));
 
   const variances = hours.map(offset => {
-    const totals = wrap(totals0, offset);
+    const totals = wrap(totals0, -offset);
     const mean = sum(hours.map(h => h * totals[h])) / sum(totals);
     const variance =
       sum(totals.map((t, h) => t * (h - mean) ** 2)) / totals.length;
     return variance;
   });
 
-  const bestOffset = variances.indexOf(Math.min(...variances));
+  let bestOffset = variances.indexOf(Math.min(...variances));
+  if (bestOffset > 12) {
+    bestOffset -= 24;
+  }
 
-  return (bestOffset + 12) % 24 - 12;
+  return bestOffset;
 };
 
 const range = length => Array.from(Array(length).keys());
