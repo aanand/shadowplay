@@ -7,4 +7,5 @@ Requires ``npm`` or ``yarn`` (preferred).
 
 To run locally::
 
-    yarn start
+    $ yarn install
+    $ yarn start
