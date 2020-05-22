@@ -11,7 +11,7 @@ export default ({
   onClear,
   loading,
   data,
-  config
+  config,
 }) => (
   <div className="Sidebar">
     {loading ? (
@@ -29,7 +29,7 @@ export default ({
         activeClassName="Sidebar-dropzone-active"
         onDrop={onDropFile}
       >
-        Drop tweets.csv here.
+        Drop file here.
       </Dropzone>
     )}
   </div>

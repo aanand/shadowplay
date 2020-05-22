@@ -1,32 +1,17 @@
-import Papa from "papaparse";
-
 class Loader {
   load(rawData) {
-    Papa.parse(rawData, {
-      header: true,
-      complete: results => {
-        const data = this.loadTweets(results.data);
-        if (typeof this.onComplete === "function") {
-          this.onComplete(data);
-        }
-      }
-    });
+    const data = this.loadTimestamps(rawData.split("\n"));
+    if (typeof this.onComplete === "function") {
+      this.onComplete(data);
+    }
   }
 
-  loadTweets(tweets) {
+  loadTimestamps(timestamps) {
     const months = {};
 
-    tweets.forEach(tweet => {
-      if (!tweet.timestamp) {
-        // sometimes there's a blank entry at the end
-        return;
-      }
-
-      const [date, time] = tweet.timestamp.split(" ");
+    timestamps.forEach((timestamp) => {
+      const [date, time] = timestamp.split("T");
       const [y, m] = date.split("-");
-      if (parseInt(y, 10) < 2011) {
-        return;
-      }
 
       const key = [y, m].join("-");
       if (!months[key]) {
@@ -43,10 +28,10 @@ class Loader {
 
     return Object.keys(months)
       .sort()
-      .map(key => {
+      .map((key) => {
         return Array.from(Array(24).keys())
-          .map(i => String(i).padStart(2, "0"))
-          .map(hour => months[key][hour] || 0);
+          .map((i) => String(i).padStart(2, "0"))
+          .map((hour) => months[key][hour] || 0);
       });
   }
 }
