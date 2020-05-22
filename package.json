@@ -1,7 +1,6 @@
 {
   "name": "shadowplay",
   "version": "0.1.0",
-  "homepage": "http://aanandprasad.com/shadowplay",
   "private": true,
   "dependencies": {
     "d3-scale": "^2.0.0",
